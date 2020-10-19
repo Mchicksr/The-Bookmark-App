@@ -51,7 +51,7 @@ const generateMain = function () {
               <input type='text' id='url' name='url' placeholder="url" required><br>
               <textarea id='description' name='description' placeholder="description"></textarea><br>
               <button class='new' type = 'submit' value="submit" >New</button> 
-    <select name ='star' size='1'>
+    <select name ='star' id='filter' size='1'>
     <option value= "5 stars" >5 stars</option>
     <option value= "4 stars" >4 stars</option> 
     <option value= "3 stars" >3 stars</option>
@@ -100,11 +100,11 @@ const generateBookmark = function (item) {
 //also takes information for bookmark //////////
 ////////////////////////////////////////////////
 let bookmarks = []
- let Rating = 0
+let Rating = 0
 
   
    
-let filtered= true;
+// let filtered= true;
 
 // console.log('SESSION', sessionStorage)
 // console.log('SESSION STORAGE BOOKMARKS', JSON.parse(sessionStorage.getItem("bookmarks")))
@@ -167,33 +167,34 @@ const render = function () {
 
 //toggle to open the Header
 if (store.adding) {
-  $('#myinfo').html(generateBookmark())
-} else {
-  $('#myinfo').empty();
+    $('#myinfo').html(generateBookmark())
+  } else {
+    $('#myinfo').empty();
 }
 
 const filterByRating= function(){
-let rating = Rating;
-let filt= [];
+  let rating = parseFloat($('#filter').val());
+  let newHTML= "";
+  // const filter=filt.filter(e => e.rating === rating)
+  // console.log('sdf',filter)
+  
+  const filterBookmarks = bookmarks.filter(bookmark =>{
+    console.log(bookmark.rating, rating)
+  return bookmark.rating === rating   
+  })
+  // console.log("yo",filterBookmarks)
+  for(let i = 0; i < filterBookmarks.length; i++){
+    const bookmark = filterBookmarks[i]
+      // console.log("tester",bookmarks[i])
+    
+      newHTML += generateBookmark(bookmark)  
+      // console.log('cheeck',newHTML)
+    }
 
-// const filter=filt.filter(e => e.rating === rating)
-// console.log('sdf',filter)
+   $('.bookmarks').remove()
+   $('#bookmarks-wrapper').append(newHTML)
+   
 
-
-for(let i = 0; i < bookmarks.length; i++){
-  //  console.log("tester",bookmarks[i])
-  if (bookmarks[i].rating >= rating) {
-    
-    bookmarks[i].filtered = true
-    
-    // filt += generateBookmark(i)
-    
-  }
-  else{bookmarks[i].filtered= false
-    
-  }
-}
-return $('.bookmarks').html(filt)
 }
 
 
@@ -218,8 +219,8 @@ return $('.bookmarks').html(filt)
         console.log('clickeddd')
         e.preventDefault();
         const rating=$('#filter').val();
-        console.log(rating)
-        // store.newFilter(rating);
+        console.log("handler funciton",rating)
+        store.newFilter(rating);
         filterByRating();
       });
     };
