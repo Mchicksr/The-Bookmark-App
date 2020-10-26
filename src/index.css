@@ -25,12 +25,12 @@ section {
     height: auto;
 }
 
-nav {
+/* nav {
     flex-direction: row;
     display: flex;
     padding-left:100px;
     padding-right:100px;
-}
+} */
 
 input {
     width: 300px;
@@ -60,11 +60,116 @@ button {
     background-color:rgba(255, 255, 255, 0.801);
     border-radius:4px;
 }
-
-@media all and (min-width:375px) {
+/* mobile first */
+body{
+width:100%;
+color:green;
+}
+/*
+@media all and (max-width:375px) {
     body {
-        width:80%;
+        
         margin:auto;
+        color: rgb(0, 225, 255);
+    }
+
+    body section{
+        width: 218%;
+    }
+    h1{
+        /* width:50%; */
+     /*   font-size:1em;
+        
+    }
+    input{
+    width:fit-content
+    }
+
+    textarea{
+        width: fit-content;
+    }
+}
+*/
+
+@media all and (max-width:370px) {
+    body {
+        
+        margin:auto;
+        color: rgb(255, 231, 19);
+    }
+    body section{
+        /* width: 50%; */
+    }
+
+    h1{
+        /* width:50%; */
+        font-size:2em;
+        margin:0;
+    }
+    nav{
+
+    }
+    input{
+        box-sizing: border-box;
+        width: auto;
+    }
+    textarea{
+        box-sizing: border-box;
+        width: auto;
     }
 }
 
+@media all and (min-width:375px) {
+    body {
+        
+        margin:auto;
+        color: rgb(255, 19, 19);
+    }
+
+    body section{
+        /* width: 50%; */
+    }
+
+    h1{
+        /* width:50%; */
+        font-size:3em;
+        margin:0;
+    }
+}
+
+@media all and (min-width:575px) {
+    body {
+       
+        margin:auto;
+        color: rgb(255, 167, 2);
+    }
+    h1{
+        /* width:50%; */
+        font-size:3em;
+        margin:auto;
+    }
+
+    form{
+        margin:auto;
+    }
+
+    nav{
+        margin: 0 auto;
+    }
+
+    
+}
+
+@media all and (min-width:875px) {
+    body {
+       
+        margin:auto;
+        color: rgb(255, 2, 213);
+    }
+
+    h1{
+        /* width:50%; */
+        font-size:4em;
+        margin:auto;
+    }
+}

@@ -28,7 +28,7 @@ $('section').prepend(`
   <button id="clickMe">Add Bookmark</button>
 
   <select name ='rating' id="filter" size='1'>
-  <option value= "1"  >filter</option> 
+  <option value= "1" >1 star </option> 
   <option value= "2" >2 stars</option>  
   <option value= "3" >3 stars</option>
   <option value= "4" >4 stars</option> 

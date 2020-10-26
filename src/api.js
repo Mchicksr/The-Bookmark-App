@@ -113,4 +113,16 @@ export default {
   createUrl,
   deleteItem,
   updateUrl,
+  // getUrl
 };
+
+
+// to do 
+// component did mount
+/*
+0. Create GET endpoint`›
+1.componentDidMount function where GET fetch needs to go
+2.fetch GET url 
+3. .then (data) to display transform data to Json
+4. build JSX list items around data with map function
+*/
