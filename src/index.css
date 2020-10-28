@@ -63,7 +63,7 @@ button {
 /* mobile first */
 body{
 width:100%;
-color:green;
+/* color:green; */
 }
 /*
 @media all and (max-width:375px) {
@@ -95,20 +95,15 @@ color:green;
     body {
         
         margin:auto;
-        color: rgb(255, 231, 19);
+        /* color: rgb(255, 231, 19); */
     }
-    body section{
-        /* width: 50%; */
-    }
-
+   
     h1{
         /* width:50%; */
         font-size:2em;
         margin:0;
     }
-    nav{
 
-    }
     input{
         box-sizing: border-box;
         width: auto;
@@ -123,12 +118,10 @@ color:green;
     body {
         
         margin:auto;
-        color: rgb(255, 19, 19);
+        /* color: rgb(255, 19, 19); */
     }
 
-    body section{
-        /* width: 50%; */
-    }
+    
 
     h1{
         /* width:50%; */
@@ -141,7 +134,7 @@ color:green;
     body {
        
         margin:auto;
-        color: rgb(255, 167, 2);
+        /* color: rgb(255, 167, 2); */
     }
     h1{
         /* width:50%; */
@@ -164,7 +157,7 @@ color:green;
     body {
        
         margin:auto;
-        color: rgb(255, 2, 213);
+        /* color: rgb(255, 2, 213); */
     }
 
     h1{

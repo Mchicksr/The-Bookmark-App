@@ -19,7 +19,7 @@ const addUrl = function (newurl) {
   try {
     this.items.push(api.create(newurl));
   } catch (error) {
-    console.log(error,'no')
+    // console.log(error,'no')
   }
 };
 

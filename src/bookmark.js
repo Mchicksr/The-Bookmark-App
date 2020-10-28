@@ -28,11 +28,13 @@ $('section').prepend(`
   <button id="clickMe">Add Bookmark</button>
 
   <select name ='rating' id="filter" size='1'>
-  <option value= "1" >1 star </option> 
-  <option value= "2" >2 stars</option>  
-  <option value= "3" >3 stars</option>
-  <option value= "4" >4 stars</option> 
+  <option value=" " >filter</option>
   <option value= "5" >5 stars</option>
+  <option value= "4" >4 stars</option> 
+  <option value= "3" >3 stars</option>
+  <option value= "2" >2 stars</option>  
+  <option value= "1" >1 star </option> 
+  
 </select>
 `)
 
@@ -118,9 +120,10 @@ const render = function () {
   if (store.adding) {
     //console.log('store adding generate main...')
     $('main').html(generateMain())
+    
   }
   else {
-    //console.log('main empty...')
+    // console.log('main empty...')
     $('main').empty();
   }
 
@@ -144,16 +147,16 @@ const render = function () {
     await api.createUrl(apiValues)
 
     bookmarks.push(apiValues)
-
-
+    
+    // console.log('pleeeeease',apiValues)
     updateSessionStorage(bookmarks)
-    e.preventDefault()
+    // e.preventDefault()
     // console.log('BOOKMARKS', bookmarks)
 
     $('article').html(bookmarks.map(generateBookmark))
 
     $("form").trigger("reset");
-
+    // $('#bookmarks').html(apiValues)
   })
 
 }
@@ -179,7 +182,7 @@ const filterByRating= function(){
   // console.log('sdf',filter)
   
   const filterBookmarks = bookmarks.filter(bookmark =>{
-    console.log(bookmark.rating, rating)
+    // console.log(bookmark.rating, rating)
   return bookmark.rating == rating   
   })
   // console.log("yo",filterBookmarks)
@@ -200,38 +203,21 @@ const filterByRating= function(){
 
 
 //create a filter handling funciton
-  //make a variable to rep the store.showRating
-  //make a new array
-  //do for a loop to expand bookmarks
-  //make a if staement
-    //asking if the bookmarks rating is less greater or equal to the rating
-    //then bookmarks[i] rating filterd will be true
-    //add to generate bookmark
-    //close
-    //else bookmarks filterd will be false
-    //close
-    //return $('.bookmarks').html(html)
-    //;
+  
     
     const handleFilterClick = function(){
      
       $('section').on('change', '#filter', function(e){
-        console.log('clickeddd')
+        // console.log('clickeddd')
         e.preventDefault();
         const rating=$('#filter').val();
-        console.log("handler funciton",rating)
+        // console.log("handler funciton",rating)
         store.newFilter(rating);
         filterByRating();
       });
     };
 
-    //create handler for filter click
-    // render $ to main on change
-      //set to filter
-    //set varieble to filet value
-    //set to store.newFilter
-      //set rating for the argument
-    //close x2
+    
 
 const toggleClass = function () {
   //console.log('toggle class called...')

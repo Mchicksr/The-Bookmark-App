@@ -7,7 +7,7 @@ const BASE_URL = 'https://thinkful-list-api.herokuapp.com/michaelHR/bookmarks';
 
 //Api catcher
 const listApiFetch = function (...args) {
-  console.log('list api fetch called...')
+  // console.log('list api fetch called...')
   let error;
   return fetch(...args)
     .then(res => {
@@ -22,34 +22,37 @@ const listApiFetch = function (...args) {
       return res.json();
     })
     .then(data => {
-        
-      if (error) {
-        error.message = data.message;
-        return Promise.reject(error);
-      }
+      // console.log("test 1")
+        // $("main").append(data)
+      // if (error) {
+      //   error.message = data.message;
+      //   return Promise.reject(error);
+      // }
        
       return data;
     });
 };
 
 const getSavedUrl= function() {
-  console.log('get saved URL called...')
+  // console.log('get saved URL called...')
   return listApiFetch(`${BASE_URL}`)
 };
 
-
+//1. get the boomkark from api
+//2.place on top of render in bookmark.js
+  //1.all bookmarks
+    
 // function getUrl(){
-//   return fetch(`${BASE_URL}/bookmarks`).then(function(myRequest){
-//     return myRequest;
-//   });
+//   return fetch(`${BASE_URL}`)
+
     
 // }
 
 
 // Formats API for Bookmark
 async function createUrl(bookmarks) {
-  console.log('createUrl called...')
-  console.log(bookmark)
+  // console.log('createUrl called...')
+  // console.log(bookmark)
   let body = JSON.stringify(bookmarks)
 
 
@@ -60,24 +63,32 @@ async function createUrl(bookmarks) {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify(bookmarks)
-  }).then(res=> res.json()).then(res =>{ 
+  }).then(res=> res.json())
+  .then(res =>{ 
     bookmarks.id = res.id
     return res
   });
 };
+const getBookmarkData= function (data){
+fetch(BASE_URL, {
+  method: "GET",
+})
+.then(res => res.json())
+.then(res=>{
+  bookmark = data
+  return res
+});
+}
 
-// const getItems = function () {
-//   return listApiFetch(`${BASE_URL}/items`);
-// };
-
+//  
 //delete api bookmarks
 const deleteItem = function (id = 0, bookmarks) {
-  console.log('delete item called...')
+  // console.log('delete item called...')
 
   //get the id value from the bookmark
   let bkid = $(event.target).closest('article')[0].attributes[1].value
 
-  console.log('BKID', bkid)
+  // console.log('BKID', bkid)
 
   //remove bookmark in ui
   $(event.target).closest('.bookmarks').remove();
@@ -92,14 +103,14 @@ const deleteItem = function (id = 0, bookmarks) {
 
   //delete element with id from bookmarks
   let ret = bookmarks.filter(e => e.id !== bkid)
-  console.log('RET', ret)
+  // console.log('RET', ret)
   return ret
 }
 
 
 //update api bookmark
 const updateUrl = function (id,update) {
-  console.log('update url called...')
+  // console.log('update url called...')
   return listApiFetch(`${BASE_URL}/${id}`, {
     method: 'PATCH',
     headers: {'Content-Type': 'application/json',},
@@ -113,6 +124,7 @@ export default {
   createUrl,
   deleteItem,
   updateUrl,
+  getBookmarkData
   // getUrl
 };
 

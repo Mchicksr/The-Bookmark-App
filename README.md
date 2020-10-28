@@ -13,5 +13,5 @@ I have completed all requirements for below
 * I receive the appropriate feedback when I cannot submit a bookmark.
 * I can select from a dropdown to select rating.
 * I have a filter to sort through ratings.
-
+    
 * Author: Michael-Hicks Richardson*
