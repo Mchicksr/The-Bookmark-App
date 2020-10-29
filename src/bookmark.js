@@ -49,8 +49,11 @@ const generateMain = function () {
         <div class="container">
           <form>
               <label for='url'>Create Bookmark Here!</label><br>
+              <label for='title'>Title</label><br>
               <input type='text' id='title' name='title' placeholder="title" required><br>
+              <label for='URL'>URL</label><br>
               <input type='text' id='url' name='url' placeholder="url" required><br>
+              <label for='Description'>Description</label><br>
               <textarea id='description' name='description' placeholder="description"></textarea><br>
               <button class='new' type = 'submit' value="submit" >New</button> 
     <select name ='star' id='filter' size='1'>
